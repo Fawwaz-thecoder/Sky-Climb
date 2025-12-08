@@ -1,0 +1,5 @@
+{
+  "name": "SkyClimb: Infinite Parkour",
+  "description": "A vertical platformer where you climb through 10 increasingly difficult levels. Features day/night cycles, unlockable block characters, and AI-powered assistance.",
+  "requestFramePermissions": []
+}
