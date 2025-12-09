@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 import GameEngine from './components/GameEngine';
-import ChatBot from './components/ChatBot';
 import Shop from './components/Shop';
 import ImprovementModal from './components/ImprovementModal';
 import DonateModal from './components/DonateModal';
@@ -101,8 +100,6 @@ const App: React.FC = () => {
 
       <ImprovementModal isOpen={isInfoOpen} onClose={() => setIsInfoOpen(false)} />
       <DonateModal isOpen={isDonateOpen} onClose={() => setIsDonateOpen(false)} />
-
-      <ChatBot />
     </div>
   );
 };

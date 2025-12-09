@@ -230,7 +230,7 @@ const GameEngine: React.FC<GameEngineProps> = ({ character, isNight, onCoinUpdat
       const currentLevel = Math.min(10, Math.floor(height / LEVEL_HEIGHT) + 1);
       
       // Fall Check (Game Over)
-      if (state.y > state.cameraY + 900) {
+      if (state.y > state.cameraY + 759) {
         setGameState(prev => ({ ...prev, isGameOver: true, isPlaying: false }));
       } else {
         // Sync vital UI state occasionally or use refs to update UI directly for performance
