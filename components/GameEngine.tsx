@@ -39,6 +39,7 @@ const GameEngine: React.FC<GameEngineProps> = ({ character, isNight, onCoinUpdat
   // Update High Score on Game Over
   useEffect(() => {
     if (gameState.isGameOver && gameState.score > highScore) {
+      posthog.capture('new_highscore', { property: gameState.score })
         setHighScore(gameState.score);
         localStorage.setItem('skyClimbHighScore', gameState.score.toString());
     }
@@ -59,6 +60,7 @@ const GameEngine: React.FC<GameEngineProps> = ({ character, isNight, onCoinUpdat
 
   // Generate initial platform
   const resetGame = useCallback(() => {
+    posthog.capture('new_game', { property: 'value' })
     physicsState.current = {
       x: 200,
       y: 600, // Start lower
