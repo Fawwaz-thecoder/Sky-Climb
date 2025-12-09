@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Platform, Coin, GameState, Character } from '../types';
 import { GRAVITY, JUMP_FORCE, MOVE_SPEED, FRICTION, LEVEL_CONFIG } from '../constants';
 import { Play, Pause, RefreshCw, ShoppingCart, Info, Lock, ChevronLeft, ChevronRight, Trophy, ChevronsUp } from 'lucide-react';
-import { usePostHog } from '@posthog/react'
+import { usePostHog } from 'posthog-js/react';
 
 interface GameEngineProps {
   character: Character;
