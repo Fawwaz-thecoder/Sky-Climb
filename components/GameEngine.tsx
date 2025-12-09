@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Platform, Coin, GameState, Character } from '../types';
 import { GRAVITY, JUMP_FORCE, MOVE_SPEED, FRICTION, LEVEL_CONFIG } from '../constants';
 import { Play, Pause, RefreshCw, ShoppingCart, Info, Lock, ChevronLeft, ChevronRight, Trophy, ChevronsUp } from 'lucide-react';
+import { usePostHog } from '@posthog/react'
 
 interface GameEngineProps {
   character: Character;
@@ -14,6 +15,7 @@ interface GameEngineProps {
 const LEVEL_HEIGHT = 3000; // Height in pixels to advance a level
 
 const GameEngine: React.FC<GameEngineProps> = ({ character, isNight, onCoinUpdate, totalCoins }) => {
+  const posthog = usePostHog()
   const canvasRef = useRef<HTMLDivElement>(null);
   const [highScore, setHighScore] = useState(0);
   const [showLevelUp, setShowLevelUp] = useState(false);
@@ -39,7 +41,7 @@ const GameEngine: React.FC<GameEngineProps> = ({ character, isNight, onCoinUpdat
   // Update High Score on Game Over
   useEffect(() => {
     if (gameState.isGameOver && gameState.score > highScore) {
-      posthog.capture('new_highscore', { property: gameState.score })
+        posthog.capture('new_highscore', { property: gameState.score })
         setHighScore(gameState.score);
         localStorage.setItem('skyClimbHighScore', gameState.score.toString());
     }
