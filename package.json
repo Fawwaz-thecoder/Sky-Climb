@@ -13,7 +13,7 @@
     "react-dom": "^19.2.1",
     "lucide-react": "^0.556.0",
     "@google/genai": "^1.31.0",
-    "posthog-js": "^1.302.2",
+    "posthog-js": "^1.302.2"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
