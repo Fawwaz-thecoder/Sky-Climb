@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import { PostHogProvider } from 'posthog-js/react'
+
+const options = {
+  api_host: "https://us.i.posthog.com",
+  defaults: '2025-11-30',
+} as const
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -10,6 +16,8 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <App />
+    <PostHogProvider apiKey={"phc_ft27CTAE4bWjy5yy0gWkcNIPATAhFWx53AkmzzZkFlW"} options={options}>
+      <App />
+    </PostHogProvider>
   </React.StrictMode>
 );
